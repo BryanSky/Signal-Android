@@ -972,6 +972,7 @@ Schlüsselaustausch-Nachricht für eine ungültige Protokollversion empfangen</s
   <string name="recipient_preferences__vibrate">Vibration</string>
   <string name="recipient_preferences__block">Blockieren</string>
   <string name="recipient_preferences__color">Farbe</string>
+  <string name="recipient_preferences__background">Hintergrund</string>
   <string name="recipient_preferences__view_safety_number">Sicherheitsnummer anzeigen</string>
   <string name="recipient_preferences__chat_settings">Unterhaltungseinstellungen</string>
   <string name="recipient_preferences__privacy">Datenschutz</string>

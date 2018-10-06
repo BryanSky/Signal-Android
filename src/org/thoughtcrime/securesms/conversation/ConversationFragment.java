@@ -21,11 +21,14 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
@@ -191,6 +194,11 @@ public class ConversationFragment extends Fragment
 
     initializeResources();
     initializeListAdapter();
+    try{
+      setChatBackground();
+    }catch(Exception e){
+      //in case the specified file was not found, don´t set any background
+    }
   }
 
   @Override
@@ -231,6 +239,16 @@ public class ConversationFragment extends Fragment
     if (threadId == -1) {
       getLoaderManager().restartLoader(0, Bundle.EMPTY, this);
     }
+  }
+
+  public void setChatBackground(){
+    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this.getContext());
+    int background = preferences.getInt(String.format("chat_background_{}", recipient.getProfileName()), R.drawable.wallpaper_1);
+    list.setBackgroundResource(background);
+    //InputStream inputStream = mContext.getResources().openRawResource(R.drawable.your_id);
+    //Bitmap b = BitmapFactory.decodeStream(inputStream);
+    //b.setDensity(Bitmap.DENSITY_NONE);
+    //Drawable d = new BitmapDrawable(b);
   }
 
   public void reloadList() {
