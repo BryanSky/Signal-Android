@@ -100,6 +100,7 @@ public class RecipientPreferenceActivity extends PassphraseRequiredActionBarActi
   private static final String PREFERENCE_CALL_VIBRATE          = "pref_key_recipient_call_vibrate";
   private static final String PREFERENCE_BLOCK                 = "pref_key_recipient_block";
   private static final String PREFERENCE_COLOR                 = "pref_key_recipient_color";
+  private static final String PREFERENCE_BACKGROUND                 = "pref_key_recipient_background";
   private static final String PREFERENCE_IDENTITY              = "pref_key_recipient_identity";
   private static final String PREFERENCE_ABOUT                 = "pref_key_number";
   private static final String PREFERENCE_CUSTOM_NOTIFICATIONS  = "pref_key_recipient_custom_notifications";
@@ -320,6 +321,8 @@ public class RecipientPreferenceActivity extends PassphraseRequiredActionBarActi
           .setOnPreferenceChangeListener(new ColorChangeListener());
       ((ContactPreference)this.findPreference(PREFERENCE_ABOUT))
           .setListener(new AboutNumberClickedListener());
+      this.findPreference(PREFERENCE_BACKGROUND)
+              .setOnPreferenceChangeListener(new BackgroundChangeListener());
     }
 
     @Override
@@ -624,6 +627,15 @@ public class RecipientPreferenceActivity extends PassphraseRequiredActionBarActi
             }
           }.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         }
+        return true;
+      }
+    }
+
+    private class BackgroundChangeListener implements Preference.OnPreferenceChangeListener {
+
+      @Override
+      public boolean onPreferenceChange(Preference preference, Object o) {
+
         return true;
       }
     }

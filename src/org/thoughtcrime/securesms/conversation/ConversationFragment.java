@@ -243,7 +243,7 @@ public class ConversationFragment extends Fragment
 
   public void setChatBackground(){
     SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this.getContext());
-    int background = preferences.getInt(String.format("chat_background_{}", recipient.getProfileName()), R.drawable.wallpaper_1);
+    int background = preferences.getInt(String.format("chat_background_%s%n", recipient.getProfileName()), R.drawable.wallpaper_1);
     list.setBackgroundResource(background);
     //InputStream inputStream = mContext.getResources().openRawResource(R.drawable.your_id);
     //Bitmap b = BitmapFactory.decodeStream(inputStream);

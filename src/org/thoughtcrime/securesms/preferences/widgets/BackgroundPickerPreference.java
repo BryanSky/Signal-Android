@@ -37,7 +37,7 @@ public class BackgroundPickerPreference extends DialogPreference {
     public void setChatBackground(Recipient recipient, int value){
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this.getContext());
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putInt(String.format("chat_background_{}", recipient.getProfileName()), value);
+        editor.putInt(String.format("chat_background_%s%n", recipient.getProfileName()), value);
         editor.commit();
     }
 }
