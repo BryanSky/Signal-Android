@@ -47,7 +47,7 @@
                 app:numColumns="5" />
         <org.thoughtcrime.securesms.preferences.widgets.BackgroundPickerPreference
             android:key="pref_key_recipient_background"
-            android:title="@string/recipient_preferences__color"
+            android:title="@string/recipient_preferences__background"
             android:defaultValue="@drawable/wallpaper_8"
             android:negativeButtonText="@null"
             android:positiveButtonText="@null"

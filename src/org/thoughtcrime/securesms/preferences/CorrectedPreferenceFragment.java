@@ -17,6 +17,8 @@ import android.view.ViewGroup;
 
 import org.thoughtcrime.securesms.R;
 import org.thoughtcrime.securesms.components.CustomDefaultPreference;
+import org.thoughtcrime.securesms.preferences.widgets.BackgroundPickerPreference;
+import org.thoughtcrime.securesms.preferences.widgets.BackgroundPickerPreferenceDialogFragmentCompat;
 import org.thoughtcrime.securesms.preferences.widgets.ColorPickerPreference;
 import org.thoughtcrime.securesms.preferences.widgets.ColorPickerPreferenceDialogFragmentCompat;
 
@@ -43,6 +45,8 @@ public abstract class CorrectedPreferenceFragment extends PreferenceFragmentComp
       dialogFragment = ColorPickerPreferenceDialogFragmentCompat.newInstance(preference.getKey());
     } else if (preference instanceof CustomDefaultPreference) {
       dialogFragment = CustomDefaultPreference.CustomDefaultPreferenceDialogFragmentCompat.newInstance(preference.getKey());
+    } else if (preference instanceof BackgroundPickerPreference) {
+      dialogFragment = BackgroundPickerPreferenceDialogFragmentCompat.newInstance(preference.getKey());
     }
 
     if (dialogFragment != null) {

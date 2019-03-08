@@ -1,33 +1,32 @@
 package org.thoughtcrime.securesms.preferences.widgets;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.preference.DialogPreference;
 import android.preference.PreferenceManager;
+import android.support.v7.preference.DialogPreference;
 import android.util.AttributeSet;
 
 import org.thoughtcrime.securesms.recipients.Recipient;
 
 public class BackgroundPickerPreference extends DialogPreference {
 
-    private Activity context;
+    private Context context;
 
     public BackgroundPickerPreference(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        this.context = (Activity) context;
+        this.context = context;
     }
 
     public BackgroundPickerPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
-        this.context = (Activity) context;
+        this.context = context;
     }
 
     public void pickBackgroundFromGallery(){
         Intent pickPhoto = new Intent(Intent.ACTION_PICK,
                 android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        context.startActivityForResult(pickPhoto , 1);
+        context.startActivity(pickPhoto);
     }
 
     public void pickBackgroundFromCamera(){
